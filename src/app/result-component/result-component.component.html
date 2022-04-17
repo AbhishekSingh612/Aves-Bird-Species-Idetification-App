@@ -1,0 +1,47 @@
+<!-- Loading while data is fetched -->
+<div *ngIf="!viewDetail && !fetchingComplete" class="container container-fluid birdDetailContainer">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+</div>
+
+<div *ngIf="!viewDetail && fetchingComplete" class="container container-fluid birdDetailContainer">
+                            
+    <div class="row">
+        <div class="col-12">
+            <p *ngIf="fetchingComplete" class="display-4 result-text">Result</p>
+        </div>
+    </div>
+    <br>
+    <div class="row" *ngFor="let item of birdDetail;let i = index">
+        <div class="col-4">
+            
+            <div *ngIf="birdDetail.length>=i && birdDetail[i]" class="BirdImage">
+                <img [src]="birdDetail[i].birdImageUrl" alt="">
+            </div>
+        </div>
+        <div *ngIf="birdDetail.length>=i && birdDetail[i]" class="col-8">
+            
+            <div class="container result-sub-text">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#" on-click="viewDetails(birdDetail[i])">
+                            {{ birdDetail[i].birdName }}
+                        </a>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" [style]="getStyle(birdDetail[i].probability)" [attr.aria-valuenow]="getProbablity(birdDetail[i].probability)" aria-valuemin="0" aria-valuemax="100"></div>
+                            <small class="justify-content-center d-flex position-absolute w-100 text-white">{{getProbablity(birdDetail[i].probability)}}% probability</small>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <app-bird-detail-component *ngIf="viewDetail" [bird]="detailsForBird"></app-bird-detail-component>

@@ -1,0 +1,45 @@
+<div class="baseContainer">
+    <div class="container container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-11 p-0 boxshadow">
+                <div class="jumbotron jumbotron-fluid m-0 roundBorder text-center" >
+
+                    <!-- container to upload image -->
+                    <div *ngIf="!imgExist" class="uploadImageContainer">
+                        <p class="lead Upload-title">Select Image of the Bird.</p>
+                        <br>
+                        <label class="btn btn-primary" for="file">Upload Image
+                            <input type="file" class="upload-btn file" name="file" id="file" on-change="onUpload($event)">
+                        </label>
+                        <p class="lead Upload-or"><small>
+                            or use
+                        </small>
+                        </p>
+                        <label class="btn btn-primary" for="camera">Camera
+                            <input type="button" class="upload-btn file" name="camera" id="camera">
+                        </label>
+                    </div>
+
+                    <!-- Preview of the uploaded Image -->
+                    <div *ngIf="imgExist && birdData==null && !isFetching" class="previewImageContainer">
+                        <p class="lead Upload-title">Preview of the selected Image.</p>
+                        <br>
+                        <img [src]="imgUrl" alt="" class="previewImage">
+                        <hr>
+                        <label class="btn btn-outline-primary" for="predict">Predict
+                            <input on-click="onPredict()" type="button" class="upload-btn file" name="predict" id="predict">
+                        </label>
+                    </div>
+                    <!-- Loading while data is fetched -->
+                    <div *ngIf="imgExist && birdData==null && isFetching" class="previewImageContainer">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                    </div>
+                    <!-- Prediction Result Container -->
+                    <app-result-component *ngIf="imgExist && birdData!=null" [birdData]="birdData"></app-result-component>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+.Upload-title{
+	color: #2C3E50;
+    text-transform: capitalize;
+}
+.Upload-or{
+	color: #697c8f;
+    text-transform: capitalize;
+}
+
+.upload-btn{
+    display: none;
+}
+.previewImage{
+    width: 20vw;
+    height: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+    /* For mobile phones: */
+    .previewImage{
+        width: 40vw;
+        height: auto;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .previewImage{
+        width: 50vw;
+        height: auto;
+    }
+  }
+
+  @media only screen and (max-width: 540px) {
+    /* For mobile phones: */
+    .previewImage{
+        width: 70vw;
+        height: auto;
+    }
+  }

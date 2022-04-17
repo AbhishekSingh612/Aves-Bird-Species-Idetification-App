@@ -1,0 +1,48 @@
+.birdDetailContainer
+{
+    color: #2C3E50;
+}
+.birdDetailContainer{
+    position: relative;
+}
+.topImage{
+    position: absolute;
+    width: 13vw;
+    height: 13vw;
+    top: calc(-7vw - 6rem);
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .topImage{
+    position: absolute;
+    width: 30vw;
+    height: 30vw;
+    top: calc(-10vw - 6rem);
+}
+}
+
+.topImage>img{
+    top: 0px;
+    aspect-ratio: 1;
+    width: 100%;
+    border-radius: 50%;
+    border: white 2px solid;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+}
+.card{
+    border: none !important;
+    /* background-color: transparent !important; */
+  }
+  .card-header{
+    border-radius: 5px !important;
+    /* background-color: rgb(10 66 115 / 8%) !important; */
+    border: 1px solid rgba(0,0,0,.125);
+  }
+  .card-body{
+    /* background-color: white; */
+      /* border: 1px solid rgb(0 0 0 / 25%); */
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+  }

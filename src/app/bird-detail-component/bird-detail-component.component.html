@@ -1,0 +1,92 @@
+<div class="container container-fluid birdDetailContainer" id="varContainer" #varContainer>
+
+    <div class="topImage" id="topImage" #topImage>
+        <img [src]="bird.birdImageUrl" alt="">
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <p class="h4 ">{{ bird.birdName }}</p>
+        </div>
+    </div>
+       <audio controls>
+      <source [src]="bird.audioLink" type="audio/mpeg">
+    </audio>
+
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        About Bird
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    {{ bird.descriptionOfBird }}
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                            Details
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Status</th>
+                                <td>{{ bird.statusOfBird }}</td>
+                            </tr>
+                            <tr>
+                                <th>Order</th>
+                                <td>{{ bird.orderOfBird }}</td>
+                            </tr>
+                            <tr>
+                                <th>Family</th>
+                                <td>{{ bird.familyOfBird }}</td>
+                            </tr>
+                            <tr>
+                                <th>Genus</th>
+                                <td>{{ bird.genusOfBird }}</td>
+                            </tr>
+                            <tr>
+                                <th>Species</th>
+                                <td>{{ bird.speciesOfBird }}</td>
+                            </tr>
+                            <tr>
+                                <th>Binomial Name</th>
+                                <td>{{ bird.binomialName }}</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="false" aria-controls="collapseThree">
+                            Location
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <img [src]="bird.mapImageURl" [alt]="bird.mapImageURl">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>

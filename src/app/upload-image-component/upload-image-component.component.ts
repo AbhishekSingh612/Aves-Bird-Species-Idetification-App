@@ -34,7 +34,7 @@ export class UploadImageComponentComponent implements OnInit {
     let formData = new FormData();
     formData.append('file', this.imgFile);
     this.isFetching = true;
-    let response = this.http.post<ResponseData[]>('https://aves-api.ankurr.me/predict-top5',formData);
+    let response = this.http.post<ResponseData[]>('https://aves-api.adaptable.app/predict-top5',formData);
     response.subscribe(
       (data)=>{
         this.birdData= data;
